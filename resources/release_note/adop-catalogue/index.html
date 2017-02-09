@@ -38,14 +38,14 @@
              <div class="header-cover">
                 <div class="header-intro">
                      <h1 class="header-title">
-                        DevOps Dashboard
+                        ADOP App Store
                      </h1>                    
                      
                 </div>
 
                  <div class="header-teasers">
                      <div class="other-info">
-                        This platform can be used for demos, training and to start real projects.<br />
+                        This is the extension catalogue/app store for the ADOP platform. Select and install any of the available extensions.<br />
                      </div>
                  </div>
              </div>           
@@ -61,7 +61,30 @@
             </div>
 
         </div>
-        
+
+<div ng-controller="AppCtrl" class="md-padding" id="popupContainer" ng-cloak>
+    <md-button class="md-primary md-raised" ng-if="listPrerenderedButton" ng-click="showPrerenderedDialog($event)">
+      Pre-Rendered Dialog
+    </md-button>
+    
+      <div style="visibility: hidden">
+    <div class="md-dialog-container" id="myDialog">
+      <md-dialog layout-padding>
+        <h2>Pre-Rendered Dialog</h2>
+        <p>
+          This is a pre-rendered dialog, which means that <code>$mdDialog</code> doesn't compile its
+          template on each opening.
+          <br/><br/>
+          The Dialog Element is a static element in the DOM, which is just visually hidden.<br/>
+          Once the dialog opens, we just fetch the element from the DOM into our dialog and upon close
+          we restore the element back into its old DOM position.
+        </p>
+      </md-dialog>
+    </div>
+  </div>
+
+</div>
+
         <footer class="container-fluid">
             <p>DevOps Platform</p>
         </footer>
