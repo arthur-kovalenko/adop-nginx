@@ -122,20 +122,4 @@
         };
     });
 
-ng.module('dialogDemo1', ['ngMaterial'])
-
-.controller('AppCtrl', function($scope, $mdDialog) {
-  $scope.status = '  ';
-  $scope.customFullscreen = false;
-
-    $scope.showPrerenderedDialog = function(ev) {
-        $mdDialog.show({
-        contentElement: '#myDialog',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true
-        });
-    };
-});
-
 })(angular, window, document);
