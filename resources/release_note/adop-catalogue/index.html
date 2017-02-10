@@ -53,12 +53,20 @@
         </div>
             
         <div class="container-fluid nopadding">
-            
-            <div id="core">
-                <div ng-repeat="linkitem in mainCtrl.core">
-                     <component-list></component-list>
-                 </div>
-            </div>
+            <div class="services">
+                <!-- Title -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="service-heading">Platform Extensions</h3>
+                    </div>
+                </div>
+                <!-- /.row -->
+                    <div id="core">
+                        <div ng-repeat="linkitem in mainCtrl.core">
+                            <component-list></component-list>
+                        </div>
+                    </div>
+                </div>
 
         </div>
 

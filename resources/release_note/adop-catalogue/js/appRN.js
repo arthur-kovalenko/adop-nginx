@@ -24,7 +24,7 @@
                 var controller = this;
 
                 dataFactory().success(function(data){ 
-                    controller.core = data.core;
+                    controller.core = data.objects;
                     $scope.codeJSON = data.blueprints;
                     controller.core.forEach(function(element, index, array){
                         generateUrls(element.components);
@@ -45,7 +45,7 @@
                         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                     }
                 }
-                $http.post('http://requestb.in/1a58b8s1', JSON.stringify(data), config).then(function (response) {
+                $http.post('../catalog/api/install/' + value, JSON.stringify(data), config).then(function (response) {
                     // This function handles success
                 }, function (response) {
                     // This function handles errors
@@ -138,8 +138,5 @@
             return value + (tail || ' …');
         };
     });
-
-
-//http://cmt1.westeurope.cloudapp.azure.com/jenkins/job/Test/job/Third/job/Cartridge_Management/job/Load_Cartridge/
 
 })(angular, window, document);
