@@ -65,7 +65,35 @@
                 }
             };
         });
-    
+
+    ng.controller("HttpGetController", function ($scope, $http) {
+
+        $scope.SendData = function () {
+           // use $.param jQuery function to serialize data from JSON 
+            var data = $.param({
+                extId: $scope.extensionId,
+            });
+        
+            var config = {
+                headers : {
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                }
+            }
+
+            $http.post('/ServerRequest/PostDataResponse', data, config)
+            .success(function (data, status, headers, config) {
+                $scope.PostDataResponse = data;
+            })
+            .error(function (data, status, header, config) {
+                $scope.ResponseDetails = "Data: " + data +
+                    "<hr />status: " + status +
+                    "<hr />headers: " + header +
+                    "<hr />config: " + config;
+            });
+        };
+
+    });
+
     /* fetch the data from the descriptor file */
     ng.module('rnApp').factory('dataFactory', ['$http', function($http){
         return function () { return $http.get('./plugins.json'); };
@@ -122,20 +150,6 @@
         };
     });
 
-ng.controller('PostController',[
-    '$scope',function($scope) {
-        $scope.sendPost = function() {
-            var data = $.param({
-                json: JSON.stringify({
-                    name: $scope.newName
-                })
-            });
-            $http.post("/echo/json/", data).success(function(data, status) {
-                $scope.hello = data;
-            })
-        }      
-    }
-]);
 
 //http://cmt1.westeurope.cloudapp.azure.com/jenkins/job/Test/job/Third/job/Cartridge_Management/job/Load_Cartridge/
 
