@@ -17,7 +17,7 @@
                                 <h3>{{component.title}}</h3>
                                 <p class="description">{{component.description | cut:true:60:' ...'}}</p>
                                 <p>
-                                    <button class="btn btn-primary" ng-click="installExtension(component.id)">Install Now!</button> <a href="#" class="btn btn-default">More Info</a>
+                                    <button class="btn btn-primary" id='{{component.id}}' ng-click="installExtension(component.id)">Install Now!</button> <a href="#" class="btn btn-default">More Info</a>
                                 </p>
                             </div>
                         </div>

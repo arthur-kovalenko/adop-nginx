@@ -45,9 +45,9 @@
                         'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
                     }
                 }
-                console.log(data);
                 $http.post('http://requestb.in/1a58b8s1', JSON.stringify(data), config).then(function (response) {
                     // This function handles success
+                    //ng.element( document.querySelector(value).addClass('hidden'));
                 }, function (response) {
                     // This function handles errors
                 });
@@ -86,7 +86,7 @@
 
     /* fetch the data from the descriptor file */
     ng.module('rnApp').factory('dataFactory', ['$http', function($http){
-        return function () { return $http.get('./plugins.json'); };
+        return function () { return $http.get('/catalog/metadata'); };
     }]);
   
   
