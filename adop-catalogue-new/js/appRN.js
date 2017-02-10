@@ -25,32 +25,16 @@
 
                 dataFactory().success(function(data){ 
                     controller.core = data.objects;
-//                    $scope.codeJSON = data.objects;
-console.log(data);
-//console.log(controller.core);
-
-                    //controller.core.forEach(function(element, index, array){
-			//console.log(controller.core);
-			//generateUrls(data);
-                        //generateUrls(element.components);
-                    //});
-                    //getServicesStatus(controller.core);
-                    //setInterval(function(){
-                    //    getServicesStatus(controller.core);
-                    //},10000);
+                    console.log(data);
                 });                
             }]
         )
 
         .controller('extensionControler', function($scope, $http) {
             $scope.installExtension = function(value) {
-                var data = { 'id' : value };
-                var config = {
-                    headers : {
-                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-                    }
-                }
-                $http.post('http://requestb.in/1a58b8s1', JSON.stringify(data), config).then(function (response) {
+                // var data = { 'id' : value };
+                // var config = { headers : {'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'}}
+                $http.get('../catalog/api/install/' + value).then(function (response) {
                     // This function handles success
                 }, function (response) {
                     // This function handles errors
@@ -144,8 +128,5 @@ console.log(data);
             return value + (tail || ' …');
         };
     });
-
-
-//http://cmt1.westeurope.cloudapp.azure.com/jenkins/job/Test/job/Third/job/Cartridge_Management/job/Load_Cartridge/
 
 })(angular, window, document);
