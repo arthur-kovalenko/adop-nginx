@@ -122,4 +122,21 @@
         };
     });
 
+ng.controller('PostController',[
+    '$scope',function($scope) {
+        $scope.sendPost = function() {
+            var data = $.param({
+                json: JSON.stringify({
+                    name: $scope.newName
+                })
+            });
+            $http.post("/echo/json/", data).success(function(data, status) {
+                $scope.hello = data;
+            })
+        }      
+    }
+]);
+
+//http://cmt1.westeurope.cloudapp.azure.com/jenkins/job/Test/job/Third/job/Cartridge_Management/job/Load_Cartridge/
+
 })(angular, window, document);

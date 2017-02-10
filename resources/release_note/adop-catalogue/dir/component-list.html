@@ -15,9 +15,9 @@
                             <img src="http://placehold.it/800x500" alt="">
                             <div class="caption" id='{{component.id}}'>
                                 <h3>{{component.title}}</h3>
-                                <p>{{component.description | cut:true:60:' ...'}}</p>
+                                <p class="description">{{component.description | cut:true:60:' ...'}}</p>
                                 <p>
-                                    <a href="#" class="btn btn-primary">Install Now!</a> <a href="#" class="btn btn-default">More Info</a>
+                                    <button class="btn btn-primary" ng-click="PostData()">Install Now!</button> <a href="#" class="btn btn-default">More Info</a>
                                 </p>
                             </div>
                         </div>
