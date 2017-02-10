@@ -36,6 +36,24 @@
                 });                
             }]
         )
+
+        .controller('extensionControler', function($scope, $http) {
+            $scope.installExtension = function(value) {
+                var data = { 'id' : value };
+                var config = {
+                    headers : {
+                        'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+                    }
+                }
+                console.log(data);
+                $http.post('http://requestb.in/1a58b8s1', JSON.stringify(data), config).then(function (response) {
+                    // This function handles success
+                }, function (response) {
+                    // This function handles errors
+                });
+            };
+        })
+
         /* load the components/tools */
         .directive('componentList', function(){
             var app = this;
@@ -65,34 +83,6 @@
                 }
             };
         });
-
-    ng.controller("HttpGetController", function ($scope, $http) {
-
-        $scope.SendData = function () {
-           // use $.param jQuery function to serialize data from JSON 
-            var data = $.param({
-                extId: $scope.extensionId,
-            });
-        
-            var config = {
-                headers : {
-                    'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-                }
-            }
-
-            $http.post('/ServerRequest/PostDataResponse', data, config)
-            .success(function (data, status, headers, config) {
-                $scope.PostDataResponse = data;
-            })
-            .error(function (data, status, header, config) {
-                $scope.ResponseDetails = "Data: " + data +
-                    "<hr />status: " + status +
-                    "<hr />headers: " + header +
-                    "<hr />config: " + config;
-            });
-        };
-
-    });
 
     /* fetch the data from the descriptor file */
     ng.module('rnApp').factory('dataFactory', ['$http', function($http){

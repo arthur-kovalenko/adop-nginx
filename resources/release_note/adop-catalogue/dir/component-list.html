@@ -10,14 +10,14 @@
                 <!-- Page Features -->
                 <div class="row text-center">
 
-                    <div class="col-md-3 col-sm-6 hero-feature" ng-repeat="component in linkitem.components" ng-controller="HttpGetController">
+                    <div class="col-md-3 col-sm-6 hero-feature" ng-repeat="component in linkitem.components">
                         <div class="thumbnail">
                             <img src="http://placehold.it/800x500" alt="">
-                            <div class="caption" id='{{component.id}}'>
+                            <div class="caption" id='{{component.id}}' ng-controller="extensionControler">
                                 <h3>{{component.title}}</h3>
                                 <p class="description">{{component.description | cut:true:60:' ...'}}</p>
                                 <p>
-                                    <button class="btn btn-primary" ng-click="SendData()">Install Now!</button> <a href="#" class="btn btn-default">More Info</a>
+                                    <button class="btn btn-primary" ng-click="installExtension(component.id)">Install Now!</button> <a href="#" class="btn btn-default">More Info</a>
                                 </p>
                             </div>
                         </div>
@@ -25,4 +25,3 @@
 
                 </div>
             </div> 
-            {{ PostDataResponse }}
