@@ -1,0 +1,15 @@
+                <!-- Page Features -->
+
+                    <div class="col-md-3 col-sm-6 hero-feature">
+                        <div class="thumbnail">
+                            <img src="{{linkitem.image}}" alt="">
+                            <div class="caption" id='{{linkitem.id}}' ng-controller="extensionControler">
+                                <h3>{{linkitem.name}}</h3>
+                                <p class="description">{{linkitem.description | cut:true:60:' ...'}}</p>
+                                <p>
+                                    <button class="btn btn-primary" id='{{linkitem.id}}' ng-click="installExtension(linkitem.id)">Install Now!</button> <!--<a href="#" class="btn btn-default">More Info</a>-->
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
